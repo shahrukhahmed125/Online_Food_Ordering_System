@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Ogani Template">
+    <meta name="keywords" content="Ogani, unica, creative, html">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    {% for i in data %}
+    <title>{{ i.Web_name}}</title>
+    {% endfor %}
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;900&display=swap" rel="stylesheet">
+    <!-- Icon -->
+    <link href="/static/img/logo.png" rel="icon">
+
+    <!-- css Styles -->
+    <link rel="stylesheet" href="/static/css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="/static/css/font-awesome.min.css" type="text/css">
+    <link rel="stylesheet" href="/static/css/elegant-icons.css" type="text/css">
+    <link rel="stylesheet" href="/static/css/nice-select.css" type="text/css">
+    <link rel="stylesheet" href="/static/css/jquery-ui.min.css" type="text/css">
+    <link rel="stylesheet" href="/static/css/owl.carousel.min.css" type="text/css">
+    <link rel="stylesheet" href="/static/css/slicknav.min.css" type="text/css">
+    <link rel="stylesheet" href="/static/css/style.css" type="text/css">
+</head>
+
+<body>
+    <!-- Page Preloder -->
+    <div id="preloder">
+        <div class="loader"></div>
+    </div>
+
+    <!-- Humberger Begin -->
+    <div class="humberger__menu__overlay"></div>
+    <div class="humberger__menu__wrapper">
+        <div class="humberger__menu__logo">
+            <a href="#"><img src="static/img/logo.png" alt=""></a>
+        </div>
+        <div class="humberger__menu__cart">
+            <ul>
+                <li><a href="#"><i class="fa fa-heart"></i> <span>1</span></a></li>
+                <li><a href="#"><i class="fa fa-shopping-bag"></i> <span>3</span></a></li>
+            </ul>
+            <div class="header__cart__price">item: <span>$150.00</span></div>
+        </div>
+        <div class="humberger__menu__widget">
+            <div class="header__top__right__language">
+                <img src="static/img/language.png" alt="">
+                <div>English</div>
+                <span class="arrow_carrot-down"></span>
+                <ul>
+                    <li><a href="#">Spanis</a></li>
+                    <li><a href="#">English</a></li>
+                </ul>
+            </div>
+            <div class="header__top__right__auth">
+                <a href="#"><i class="fa fa-user"></i> Login</a>
+            </div>
+        </div>
+        <nav class="humberger__menu__nav mobile-menu">
+            <ul>
+                <li class="active"><a href="/">Home</a></li>
+                <li><a href="/shop">Shop</a></li>
+                <li><a href="/restaurant">Restaurants</a></li>
+                <li><a href="/dishes">Dishes</a></li>
+                <li><a href="/contact">Contact</a></li>
+            </ul>
+        </nav>
+        <div id="mobile-menu-wrap"></div>
+        <div class="header__top__right__social">
+            {% for i in data %}
+            <a href="{{ i.Web_facebook_link}}"><i class="fa fa-facebook"></i></a>
+            <a href="{{ i.Web_instagram_link}}"><i class="fa fa-instagram"></i></a>
+            <a href="{{ i.Web_twitter_link}}"><i class="fa fa-twitter"></i></a>
+            <a href="{{ i.Web_whatsapp_link}}"><i class="fa fa-whatsapp"></i></a>
+            {% endfor %}
+        </div>
+        <div class="humberger__menu__contact">
+            <ul>
+                <li><i class="fa fa-envelope"></i> hello@colorlib.com</li>
+                <li>Free Shipping for all Order of $99</li>
+            </ul>
+        </div>
+    </div>
+    <!-- Humberger End -->
+
+    <!-- Header Section Begin -->
+    <header class="header">
+        <div class="header__top">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6 col-md-6">
+                        <div class="header__top__left">
+                            <ul>
+                                {% for i in data %}
+                                <li><i class="fa fa-envelope"></i> {{ i.Web_email}}</li>
+                                {% endfor %}
+                                <li>Free Shipping for all Order of Rs.99</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6">
+                        <div class="header__top__right">
+                            <div class="header__top__right__social">
+                            {% for i in data %}
+                            <a href="{{ i.Web_facebook_link}}"><i class="fa fa-facebook"></i></a>
+                            <a href="{{ i.Web_instagram_link}}"><i class="fa fa-instagram"></i></a>
+                            <a href="{{ i.Web_twitter_link}}"><i class="fa fa-twitter"></i></a>
+                            <a href="{{ i.Web_whatsapp_link}}"><i class="fa fa-whatsapp"></i></a>
+                            {% endfor %}
+                            </div>
+                            <div class="header__top__right__language">
+                                <img src="static/img/language.png" alt="">
+                                <div>English</div>
+                                <span class="arrow_carrot-down"></span>
+                                <ul>
+                                    <li><a href="#">Spanis</a></li>
+                                    <li><a href="#">English</a></li>
+                                </ul>
+                            </div>
+                            <div class="header__top__right__auth">
+<!--                                    <a href="user_login" class="fa fa-user"> Login</a>-->
+
+                                {% if user.is_authenticated %}
+                                    Welcome, {{ request.user.username }}
+                                    <a href="/user_logout" class="fa fa-user"> Logout</a>
+                                {% else %}
+                                    <a href="/user_login" class="fa fa-user"> Login</a>
+                                {% endif %}
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3">
+                    <div class="header__logo">
+                        <a href="/"><img src="/static/img/logo.png" alt="" height="60px" width="80px"></a>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <nav class="header__menu">
+                        <ul>
+                            <li class="active"><a href="/">Home</a></li>
+                            <li><a href="/shop">Shop</a></li>
+                            <li><a href="/restaurant">Restaurants</a></li>
+                            <li><a href="/dishes">Dishes</a></li>
+                            <li><a href="/contact">Contact</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="col-lg-3">
+                    <div class="header__cart">
+                        <ul>
+                            {% if user.is_authenticated %}
+                            <li><a href="#"><i class="fa fa-heart"></i></a></li>
+                            <li><a href="shoping-cart"><i class="fa fa-shopping-bag"></i></a></li>
+                            {% endif%}
+                        </ul>
+<!--                        <div class="header__cart__price">item: <span>$150.00</span></div>-->
+                    </div>
+                </div>
+            </div>
+            <div class="humberger__open">
+                <i class="fa fa-bars"></i>
+            </div>
+        </div>
+    </header>
+    <!-- Header Section End -->
+
+    {% block content %}
+
+
+
+    {% endblock %}
+
+
+
+
+
+
+
+    <!-- Footer Section Begin -->
+    <footer class="footer spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3 col-md-6 col-sm-6">
+                    <div class="footer__about">
+                        <div class="footer__about__logo">
+                            <a href="/"><img src="/static/img/logo.png" alt="" height="60px" width="80px"></a>
+                        </div>
+                        <ul>
+                            {% for i in data %}
+                            <li>Address: {{ i.Web_address }}</li>
+                            <li>Phone: {{ i.Web_phone}}</li>
+                            <li>Email: {{ i.Web_email}}</li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-6 offset-lg-1">
+                    <div class="footer__widget">
+                        <h6>Links</h6>
+                        <ul>
+                            <li><a href="/">Home</a></li>
+                            <li><a href="/shop">Shop</a></li>
+                            <li><a href="/restaurant">Restaurant</a></li>
+                            <li><a href="/dishes">Dishes</a></li>
+                            <li><a href="/contact">Our Contact</a></li>
+                        </ul>
+                        <h6>About</h6>
+                        <ul>
+                            <p>
+                                We are here to make your life easier and tastier. We are here to serve you. We are here to be your online food ordering partner.
+                            </p>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-12">
+                    <div class="footer__widget">
+                        <h6>Join Our Newsletter Now</h6>
+                        <p>Get E-mail updates about our latest shop and special offers.</p>
+                        <form action="#">
+                            <input type="text" placeholder="Enter your mail">
+                            <button type="submit" class="site-btn">Subscribe</button>
+                        </form>
+                        <div class="footer__widget__social">
+                            {% for i in data %}
+                            <a href="{{ i.Web_facebook_link}}"><i class="fa fa-facebook"></i></a>
+                            <a href="{{ i.Web_instagram_link}}"><i class="fa fa-instagram"></i></a>
+                            <a href="{{ i.Web_twitter_link}}"><i class="fa fa-twitter"></i></a>
+                            <a href="{{ i.Web_whatsapp_link}}"><i class="fa fa-whatsapp"></i></a>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="footer__copyright">
+                        <div class="footer__copyright__text"><p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+  Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | {% for i in data %}<a href="https://colorlib.com" target="_blank" style="color:red;">{{ i.Web_name}}</a>{% endfor %}
+  <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p></div>
+                        <div class="footer__copyright__payment"><img src="static/img/payment-item.png" alt=""></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Footer Section End -->
+
+    <!-- Js Plugins -->
+    <script src="/static/js/jquery-3.3.1.min.js"></script>
+    <script src="/static/js/bootstrap.min.js"></script>
+    <script src="/static/js/jquery.nice-select.min.js"></script>
+    <script src="/static/js/jquery-ui.min.js"></script>
+    <script src="/static/js/jquery.slicknav.js"></script>
+    <script src="/static/js/mixitup.min.js"></script>
+    <script src="/static/js/owl.carousel.min.js"></script>
+    <script src="/static/js/main.js"></script>
+    <script>
+
+        const myTimeout = setTimeout(closeAlert, 4000);
+
+        function closeAlert()
+        {
+            document.getElementById("alert").style.display = 'none';
+        }
+
+    </script>
+
+
+
+</body>
+
+</html>

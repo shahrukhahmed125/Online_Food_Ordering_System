@@ -1,0 +1,42 @@
+{% extends "masterpage.html"%}
+
+{% block content %}
+
+
+    <!-- Contact Form Begin -->
+    <div class="contact-form spad">
+        <div class="container" style="width:30%">
+            <div class="row align-items-center">
+                <div class="col-lg-12">
+                    <div class="contact__form__title">
+                        <h2>Login Account</h2>
+                    </div>
+                </div>
+            </div>
+
+<!--            {% if m %}-->
+<!--                <div class="alert alert-success fade show" role="alert" id="alert" style="background-color:#7fad39;color:white;font-size:18px;font-weight:800;">-->
+<!--                    {{ m }}-->
+<!--                      <button type="button" class="close" data-dismiss="alert" aria-label="Close">-->
+<!--                        <span aria-hidden="true">&times;</span>-->
+<!--                      </button>-->
+<!--                </div><br>-->
+<!--            {% endif %}-->
+
+            <form method="post">
+                {% csrf_token %}
+                <div class="row">
+                    <div class="col-lg-12 col-md-12">
+                        {{form.as_p}}
+                    </div>
+                    <div class="col-lg-12 text-center">
+                        <button type="submit" class="site-btn">Login</button><br><br>
+                        <a href="user_signup" class="text-center" style="color:black;">Register Now</a>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <!-- Contact Form End -->
+
+{% endblock %}

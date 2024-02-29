@@ -1,0 +1,74 @@
+{% extends "masterpage.html"%}
+
+{% block content %}
+
+        <!-- Breadcrumb Section Begin -->
+    <section class="breadcrumb-section set-bg" style="background-color:#ECBA33;">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <div class="breadcrumb__text hero__text">
+                        <h2>Are you a restaurant owner</h2>
+                        <div class="breadcrumb__option">
+                            <span>Register now to sell your food online</span><br><br>
+                            <a href="restaurant-register" class="primary-btn" style="color:black;">Sign Up</a>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Breadcrumb Section End -->
+    <!-- Contact Form Begin -->
+    <div class="contact-form spad">
+        <div class="container" style="width:30%">
+            <div class="row align-items-center">
+                <div class="col-lg-12">
+                    <div class="contact__form__title">
+                        <h2>Register Account</h2>
+                    </div>
+                </div>
+            </div>
+
+<!--            {% if m %}-->
+<!--                <div class="alert alert-success fade show" role="alert" id="alert" style="background-color:#7fad39;color:white;font-size:18px;font-weight:800;">-->
+<!--                    {{ m }}-->
+<!--                      <button type="button" class="close" data-dismiss="alert" aria-label="Close">-->
+<!--                        <span aria-hidden="true">&times;</span>-->
+<!--                      </button>-->
+<!--                </div><br>-->
+<!--            {% endif %}-->
+
+            <form method="post">
+                {% csrf_token %}
+                <div class="row">
+                    {% for input in form%}
+                        {{ input.label_tag}}
+                        {{ input}}
+                        {% for error in input.errors%}
+                            <p style="color:red:">{{ error }}</p>
+                        {% endfor %}
+
+                    {% endfor %}
+
+<!--                    <div class="col-lg-12 col-md-12">-->
+<!--                        <input type="text" placeholder="Your Name" name="U_name">-->
+<!--                    </div>-->
+<!--                    <div class="col-lg-12 col-md-12">-->
+<!--                        <input type="email" placeholder="Your Email" name="U_email">-->
+<!--                    </div>-->
+<!--                    <div class="col-lg-12 col-md-12">-->
+<!--                        <input type="password" placeholder="Your Password" name="U_pass">-->
+<!--                    </div>-->
+                    <div class="col-lg-12 text-center">
+                        <button type="submit" class="site-btn">SignUp</button><br><br>
+                        <a href="user_login" class="text-center" style="color:black;">Already have account</a>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <!-- Contact Form End -->
+
+{% endblock %}
